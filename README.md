@@ -31,7 +31,7 @@ CLOUDANT_API_KEY=<api_key_from_email>
 CLOUDANT_DB_NAME=airport-<your_last_name_all_lowercase>
 ```
 
-Replace the `CLOUDANT_URL` and `CLOUDANT_API_KEY` values with the information we provided in your email. The `CLOUDANT_DB_NAME` value should be your last name in all lowercase. For John Doe it should read `CLOUDANT_DB_NAME=airport-doe`.
+Replace the `CLOUDANT_URL` and `CLOUDANT_API_KEY` values with the information we provided in your email. The `CLOUDANT_DB_NAME` value should be the phrase 'airport-' followed by your last name in all lowercase letters. For John Doe it should read `CLOUDANT_DB_NAME=airport-doe`.
 
 4. Open up 2 terminals pointing to the root of the repository.
 
