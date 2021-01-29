@@ -1,0 +1,48 @@
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const app = express();
+const port = 8081;
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+const crudHelper = require("./server/helpers/crudHelper");
+
+// The database_name should be "airport-<your_last_name_in_all_lowercase>" for example John Doe would be "airport-doe"
+const database_name = "airport-<enter_last_name>";
+
+// Post request to create a plane's status
+app.post('/api/planestatus/create', (req, res) => {
+  crudHelper.createPlaneStatus(database_name, req.body)
+    .then(result => res.send(result))
+    .catch(err => console.log(err.description));
+});
+
+// Get request to read a plane's status
+app.get('/api/planestatus/read', (req, res) => {
+  crudHelper.readPlaneStatus(database_name).then(function (result) {
+    res.send(result);
+  });
+});
+
+// Post request to update a plane's status
+/*
+* Fill this section out
+*/
+
+// Post request to delete a plane's status
+/*
+* Fill this section out
+*/
+
+
+app.get('/', (req,res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
+});
+
+app.listen(port, function () {
+  console.log('Server listening on port ' + port);
+});
+
