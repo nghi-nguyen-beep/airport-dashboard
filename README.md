@@ -103,7 +103,9 @@ Send us a link to your repository to `jpark@us.ibm.com`, `benjamin.siper@ibm.com
 
 ## Helpful Links and Tips
 
-- Once again, you can choose to add to just the backend, just the frontend or both.
+- Once again, you can choose to add to just the backend, just the frontend or both. 
+
+- You are free to use any additional packages as long as they are in your package.json file and we can install them with the `npm install` command.
 
 - NPM Cloudant documentation: https://www.npmjs.com/package/@cloudant/cloudant
 
