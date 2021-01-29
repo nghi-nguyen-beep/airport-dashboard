@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
+require('dotenv').config({path: '../.env'});
 const port = 8081;
 
 app.use(bodyParser.json());
@@ -11,7 +12,7 @@ app.use(express.static(path.join(__dirname, '../frontend/dist')));
 const crudHelper = require("./server/helpers/crudHelper");
 
 // The database_name should be "airport-<your_last_name_in_all_lowercase>" for example John Doe would be "airport-doe"
-const database_name = "airport-<enter_last_name>";
+const database_name = process.env.CLOUDANT_DB_NAME;
 
 // Post request to create a plane's status
 app.post('/api/planestatus/create', (req, res) => {
