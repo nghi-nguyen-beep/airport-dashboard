@@ -55,6 +55,8 @@ Replace the `CLOUDANT_URL` and `CLOUDANT_API_KEY` values with the information we
 
 You can now view all the planes and their status on the dashboard. You can also fill in the boxes and add a new plane to the dashboard.
 
+![Demo Video](https://media.giphy.com/media/2VSPlZUbJgQX4NHxFA/giphy.gif)
+
 
 ## Structure 
 
