@@ -36,6 +36,28 @@ module.exports = function Constructor () {
         async postData(dbName, document) {
             return await this.Client.db.use(dbName).insert(document);
         },
+
+        /**
+         * @method updateData
+         * @async
+         * @return {Array}
+         */
+        async updateData(dbName, documentPlane, documentId, documentRev) {
+            let updatedDocument = {
+                _id: documentId,
+                "_rev": documentRev,
+                planeObject: documentPlane
+            }
+            
+            return await this.Client.db.use(dbName).insert(updatedDocument, (err) => {
+                if (err) {
+                console.log("update err", err);
+                return;
+              }
+              console.log('no err, updated successfully')       
+                });
+        },
+
         /**
          * @method deleteData
          * @async

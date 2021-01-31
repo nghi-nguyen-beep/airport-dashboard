@@ -49,14 +49,16 @@ module.exports = {
      * @async
      * @return {Array}
      */
-    updatePlaneStatus(database, status) {
+    updatePlaneStatus(database, body) {
     // https://www.ibm.com/cloud/blog/cloudant-best-and-worst-practices-part-2
     // create another document from user
     // delete selected document
         return new Promise((resolve, reject) => {
-            _cloudant.postData(
+            _cloudant.updateData(
                 database,
-                status
+                body.planeObject,
+                body._id,
+                body._rev
             ).then(result => {
                 resolve(result);
             }).catch(err => reject(err));

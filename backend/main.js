@@ -30,7 +30,7 @@ app.get('/api/planestatus/read', (req, res) => {
 
 // Post request to update a plane's status
 app.post('/api/planestatus/update', (req, res) => {
-  crudHelper.updatePlaneStatus(database_name, req.body, req.body._id, req.body._rev)
+  crudHelper.updatePlaneStatus(database_name, req.body)
   .then(result => res.send(result))
   .catch(err => console.log("Error updating plane. ", err.description));
 });
