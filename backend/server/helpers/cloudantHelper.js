@@ -41,8 +41,14 @@ module.exports = function Constructor () {
          * @async
          * @return {Array}
          */
-        async deleteData(dbName, id, rev) {
-            return await this.Client.db.use(dbName).destroy(id, rev);
+        async deleteData(dbName, documentId, documentRev) {
+            return await this.Client.db.use(dbName).destroy(documentId, documentRev, (err) => {
+                if (err) {
+                console.log("err", err);
+                return;
+              }
+              console.log('no err, deleted successfully')       
+                });
         }
     }
 };

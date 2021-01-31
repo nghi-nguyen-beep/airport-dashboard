@@ -29,15 +29,18 @@ app.get('/api/planestatus/read', (req, res) => {
 });
 
 // Post request to update a plane's status
-/*
-* Fill this section out
-*/
+app.post('/api/planestatus/update', (req, res) => {
+  crudHelper.updatePlaneStatus(database_name, req.body, req.body._id, req.body._rev)
+  .then(result => res.send(result))
+  .catch(err => console.log("Error updating plane. ", err.description));
+});
 
 // Post request to delete a plane's status
-/*
-* Fill this section out
-*/
-
+app.post('/api/planestatus/delete', (req, res) => {
+ crudHelper.deletePlaneStatus(database_name, req.body._id, req.body._rev)
+ .then(result => { res.send(result) })
+ .catch(err => console.log("Error deleting plane. ", err)) 
+});
 
 app.get('/', (req,res) => {
   res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
