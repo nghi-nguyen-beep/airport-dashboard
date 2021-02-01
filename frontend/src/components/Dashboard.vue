@@ -47,7 +47,10 @@ export default {
     deletePlane(data) {
       console.log('deleting plane: ', data)
       deletePlane(data)
-      .then(() => this.getAllPlanes())
+      .then((response) => {
+        console.log("response", response);
+        this.getAllPlanes();
+        })
       .catch(err => console.log(err));
     },
 

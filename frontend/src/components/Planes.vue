@@ -17,8 +17,7 @@
                   <td>{{ item.planeObject.departure }}</td>
                   <td>{{ item.planeObject.destination }}</td>
                   <td>{{ item.planeObject.status }}</td>
-
-                  <td><button @click='deletePlane(item._id, item._rev)'>delete</button></td>
+                  <td><DeletePlane v-on:deletePlane="$emit('deletePlane', $event)" v-bind:id="item._id" v-bind:rev="item._rev" /></td>
               </tr>
             </tbody>
         </table>
@@ -26,19 +25,14 @@
 </template>
 
 <script>
+    import DeletePlane from './DeletePlane.vue';
     export default {
         name: 'planes',
         props: ['planes'],
-        methods: {
-        deletePlane(id, rev) {
-          console.log("planes", id, rev)
-          const payload = {
-              _id: id,
-              _rev: rev
-          }
-          this.$emit('deletePlane', payload)
-      }
+        components: {
+            DeletePlane
         }
+    
      }
 </script>
 
