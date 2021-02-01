@@ -1,14 +1,10 @@
 <template>
   <div class="dashboard">
     <Header />
-    <div class="container mrgnbtm">
-          <div class="row">
-            <div class="col-md-8">
-                <AddPlane @addPlane="addPlane($event)" />
-            </div>
-          </div>
+    <div class="Dashboard-component">  
+        <AddPlane @addPlane="addPlane($event)" />      
     </div>
-    <div class="row mrgnbtm">
+    <div class="Dashboard-component">
         <Planes v-if="planes.length > 0" :planes="planes" @deletePlane="deletePlane($event)" />
     </div>
   </div>
@@ -17,6 +13,7 @@
 <script>
 import AddPlane from './AddPlane.vue'
 import Planes from './Planes.vue'
+import '../assets/css/Dashboard.css'
 import { getAllPlanes, addPlane, deletePlane, updatePlane } from '../services/planeServices'
 
 export default {
@@ -68,3 +65,4 @@ export default {
   }
 }
 </script>
+

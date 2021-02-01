@@ -1,0 +1,9 @@
+#app {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: rgb(106, 162, 226);
+    font-family: 'Avenir', Arial, Helvetica;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    /* letter-spacing: 1px; */
+  }

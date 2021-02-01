@@ -1,0 +1,11 @@
+.dashboard {
+    padding: 2%;
+    display: flex;
+    justify-content:left;
+    flex-wrap: wrap;
+    align-items:flex-start;
+}
+
+/* .Dashboard-component {
+    padding-right: 10%;
+} */

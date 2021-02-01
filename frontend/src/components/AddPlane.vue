@@ -1,28 +1,29 @@
 <template>
-  <div class="container">
+  <div class="AddPlane-container">
+      
     <div class="row">
-        <div class="col-md-7 mrgnbtm">
-        <h2>Add Plane</h2>
-            <form>
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <label htmlFor="exampleInputEmail1">Plane Number</label>
+     <h2 class="AddPlane-h2">Add Plane</h2>
+        <div class="AddPlane-form">
+            <form >
+                <div>
+                    <div class="input-block" >
+                        <label class="AddPlane-label">Plane Number</label>
                         <input type="text" class="form-control" v-model="planeNumber" name="planenumber" id="planenumber" />
                     </div>
-                    <div class="form-group col-md-6">
-                        <label htmlFor="exampleInputPassword1">Departure</label>
+                    <div class="input-block">
+                        <label class="AddPlane-label" >Departure</label>
                         <input type="text" class="form-control" v-model="departure" name="departure" id="departure" />
                     </div>
-                    <div class="form-group col-md-6">
-                        <label htmlFor="exampleInputEmail1">Destination</label>
+                    <div class="input-block">
+                        <label class="AddPlane-label" >Destination</label>
                         <input type="text" class="form-control" v-model="destination" name="destination" id="destination" />
                     </div>
-                    <div class="form-group col-md-6">
-                        <label htmlFor="exampleInputPassword1">Status</label>
+                    <div class="input-block">
+                        <label class="AddPlane-label" >Status</label>
                         <input type="text" class="form-control" v-model="status" name="status" id="status" />
                     </div>
                 </div>
-                <button type="button" @click='addPlane()' class="btn btn-danger">Create</button>
+                <button id= "AddPlane-button" type="button" @click='addPlane()' class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Create</button>
             </form>
         </div>
     </div>
@@ -30,6 +31,8 @@
 </template>
 
 <script>
+import '../assets/css/AddPlane.css'
+
 export default {
   name: 'AddPlane',
   data() {
