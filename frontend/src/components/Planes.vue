@@ -8,6 +8,8 @@
                 <th>Departure</th>
                 <th>Destination</th>
                 <th>Status</th>
+                <th>ID</th>
+                <th>Rev</th>
             </tr>
             </thead>
             <tbody>
@@ -16,6 +18,9 @@
                   <td>{{ item.planeObject.departure }}</td>
                   <td>{{ item.planeObject.destination }}</td>
                   <td>{{ item.planeObject.status }}</td>
+                  <td>{{ item._id }}</td>
+                  <td>{{ item._rev }}</td>
+                  <td><button @click='deletePlane(item._id, item._rev)'>delete</button></td>
               </tr>
             </tbody>
         </table>
@@ -25,6 +30,16 @@
 <script>
     export default {
         name: 'planes',
-        props: ['planes']
+        props: ['planes'],
+        methods: {
+        deletePlane(id, rev) {
+          console.log("planes", id, rev)
+          const payload = {
+              _id: id,
+              _rev: rev
+          }
+          this.$emit('deletePlane', payload)
+      }
+        }
      }
 </script>

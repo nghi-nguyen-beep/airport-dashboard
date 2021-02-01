@@ -9,7 +9,7 @@
           </div>
     </div>
     <div class="row mrgnbtm">
-        <Planes v-if="planes.length > 0" :planes="planes" />
+        <Planes v-if="planes.length > 0" :planes="planes" @deletePlane="deletePlane($event)" />
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@
 <script>
 import AddPlane from './AddPlane.vue'
 import Planes from './Planes.vue'
-import { getAllPlanes, addPlane } from '../services/planeServices'
+import { getAllPlanes, addPlane, deletePlane, updatePlane } from '../services/planeServices'
 
 export default {
   name: 'Dashboard',
@@ -42,10 +42,26 @@ export default {
     addPlane(data) {
       console.log('adding plane: ', data)
       addPlane(data).then(response => {
-        console.log(response);
+        console.log('response', response);
+        this.getAllPlanes();
+      });
+    },
+
+    deletePlane(data) {
+      console.log('deleting plane: ', data)
+      deletePlane(data)
+      .then(() => this.getAllPlanes())
+      .catch(err => console.log(err));
+    },
+
+   updatePlane(data) {
+      console.log('updating plane: ', data)
+     updatePlane(data).then(response => {
+        console.log('response', response);
         this.getAllPlanes();
       });
     }
+
   },
   mounted () {
     this.getAllPlanes();

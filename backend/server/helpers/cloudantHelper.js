@@ -45,10 +45,9 @@ module.exports = function Constructor () {
         async updateData(dbName, documentPlane, documentId, documentRev) {
             let updatedDocument = {
                 _id: documentId,
-                "_rev": documentRev,
+                _rev: documentRev,
                 planeObject: documentPlane
             }
-            
             return await this.Client.db.use(dbName).insert(updatedDocument, (err) => {
                 if (err) {
                 console.log("update err", err);
