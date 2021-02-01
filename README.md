@@ -121,3 +121,12 @@ on a terminal. Tools such as [Postman](postman.com) can also help test your endp
 - The `update` endpoint is very similar to the `create` endpoint but you just need to include the `"_id"` and `"_rev"` fields in the json you are sending. See https://stackoverflow.com/questions/31349447/how-do-i-update-a-doc-in-cloudant-using-cloudant-node-js
 
 - This may be a helpful tutorial: https://medium.com/bb-tutorials-and-thoughts/how-to-develop-and-build-vue-js-app-with-nodejs-bd86feec1a20
+
+## Resources used
+
+- https://github.com/apache/couchdb-nano#document-functions
+
+- http://writings.nunojob.com/2012/07/How-To-Update-A-Document-With-Nano-The-CouchDB-Client-for-Node.js.html
+
+- https://www.ibm.com/cloud/blog/cloudant-best-and-worst-practices-part-2
+
