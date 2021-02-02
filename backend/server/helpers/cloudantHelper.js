@@ -48,13 +48,7 @@ module.exports = function Constructor () {
                 _rev: documentRev,
                 planeObject: documentPlane
             }
-            return await this.Client.db.use(dbName).insert(updatedDocument, (err) => {
-                if (err) {
-                console.log("update err", err);
-                return;
-              }
-              console.log('no err, updated successfully')       
-                });
+            return await this.Client.db.use(dbName).insert(updatedDocument);
         },
 
         /**
@@ -63,13 +57,7 @@ module.exports = function Constructor () {
          * @return {Array}
          */
         async deleteData(dbName, documentId, documentRev) {
-            return await this.Client.db.use(dbName).destroy(documentId, documentRev, (err) => {
-                if (err) {
-                console.log("err", err);
-                return;
-              }
-              console.log('no err, deleted successfully')       
-                });
+            return await this.Client.db.use(dbName).destroy(documentId, documentRev);
         }
     }
 };
