@@ -8,22 +8,24 @@
                 <div>
                     <div class="input-block" >
                         <label class="AddPlane-label">Plane Number</label>
-                        <input type="text" class="form-control" v-model="planeNumber" name="planenumber" id="planenumber" />
+                        <input type="text" class="form-control" v-model="planeNumber" name="planenumber" id="AddPlane-planenumber" />
                     </div>
                     <div class="input-block">
                         <label class="AddPlane-label" >Departure</label>
-                        <input type="text" class="form-control" v-model="departure" name="departure" id="departure" />
+                        <input type="text" class="form-control" v-model="departure" name="departure" id="AddPlane-departure" />
                     </div>
                     <div class="input-block">
                         <label class="AddPlane-label" >Destination</label>
-                        <input type="text" class="form-control" v-model="destination" name="destination" id="destination" />
+                        <input type="text" class="form-control" v-model="destination" name="destination" id="AddPlane-destination" />
                     </div>
                     <div class="input-block">
                         <label class="AddPlane-label" >Status</label>
-                        <input type="text" class="form-control" v-model="status" name="status" id="status" />
+                        <input type="text" class="form-control" v-model="status" name="status" id="AddPlane-status" />
                     </div>
                 </div>
-                <button id= "AddPlane-button" type="button" @click='addPlane()' class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Create</button>
+                <div class= "AddPlane-button-div">
+                <button id= "AddPlane-button" type="button" @click='addPlane()'>Create</button>
+                </div>
             </form>
         </div>
     </div>

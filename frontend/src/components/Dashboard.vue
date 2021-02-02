@@ -1,11 +1,14 @@
 <template>
-  <div class="dashboard">
+  <div class="Dashboard">
+    <Navbar/>
     <Header />
+    <div class="Dashboard-main">
     <div class="Dashboard-component">  
         <AddPlane @addPlane="addPlane($event)" />      
     </div>
     <div class="Dashboard-component">
-        <Planes v-if="planes.length > 0" :planes="planes" @deletePlane="deletePlane($event)" @updatePlane="updatePlane($event)" />
+        <Planes v-bind:planes="planes" @deletePlane="deletePlane($event)" @updatePlane="updatePlane($event)" />
+    </div>
     </div>
   </div>
 </template>
@@ -13,6 +16,7 @@
 <script>
 import AddPlane from './AddPlane.vue'
 import Planes from './Planes.vue'
+import Navbar from './Navbar.vue'
 import '../assets/css/Dashboard.css'
 import { getAllPlanes, addPlane, deletePlane, updatePlane } from '../services/planeServices'
 
@@ -20,7 +24,8 @@ export default {
   name: 'Dashboard',
   components: {
     AddPlane,
-    Planes
+    Planes,
+    Navbar
   },
   data() {
       return {

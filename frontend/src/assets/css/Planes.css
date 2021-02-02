@@ -1,0 +1,38 @@
+.Planes-container {
+    margin: 5%;
+    width: 40vw;
+    height: 80vh;
+}
+
+.Planes-h2 {
+    text-align: left;
+    padding: 2%;
+}
+
+.Planes-table-container {
+    width: 36vw;
+}
+
+td, tr {
+    color: white;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.Planes-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+table {
+    table-layout: fixed;
+    width: 36vw;   
+}
+
+input[id*="Planes-"] {
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+}

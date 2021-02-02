@@ -1,7 +1,9 @@
 .AddPlane-container {
-    padding-top: 1%;
+    display: flex;
+    padding: 5%;
     width: 40vw;
-    height: 40vh;
+    height: 80vh;
+
 }
 
 .AddPlane-label {
@@ -26,12 +28,15 @@
     margin: 2%;
 }
 
-input[type=text] {
+input[id*="AddPlane-"] {
     outline: none;
     background-color: rgb(255, 255, 255);
     width: 40%;
 }
 
-#AddPlane-button {
+.AddPlane-button-div {
+    display: flex;
+    justify-content:center;
+    align-items:center;
     margin: 5%;
 }
