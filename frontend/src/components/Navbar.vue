@@ -1,6 +1,8 @@
 <template>
-<nav class="navbar">
-  <span class="navbar-brand mb-0 h1">Airport Dashboard</span>
+<nav class="Navbar">
+  <h4 class="Navbar-title">Airport Dashboard</h4>
+  <i class="bi bi-cursor"></i>
+
 </nav>
 </template>
 

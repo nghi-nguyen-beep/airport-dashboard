@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click='deletePlane()' class="btn btn-danger btn-sm active" >delete</button>
+        <button @click='deletePlane()' >delete</button>
     </div>
 </template>
 

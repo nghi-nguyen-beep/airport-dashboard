@@ -3,14 +3,12 @@
     padding: 5%;
     width: 40vw;
     height: 80vh;
-
 }
 
 .AddPlane-label {
     display: inline-block;
     width: 140px;
     text-align: left;
-    /* padding-right: 2%; */
 }
 
 .AddPlane-h2 {
@@ -40,3 +38,17 @@ input[id*="AddPlane-"] {
     align-items:center;
     margin: 5%;
 }
+
+#AddPlane-button {
+    background-color: rgb(19, 129, 37) ;
+    border-radius: 4px;
+    color: white;
+    border: 2px solid #4CAF50; /* Green */
+    transition-duration: 0.3s;
+}
+
+#AddPlane-button:hover {
+    background-color: #266828; /* Green */
+    color: white;
+  }
+

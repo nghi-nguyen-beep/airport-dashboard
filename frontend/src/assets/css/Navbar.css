@@ -1,7 +1,10 @@
-.navbar{
+.Navbar{
+    display: flex;
+    padding: 0.5vw;
     background-color: rgb(61, 104, 153);
+    align-items: flex-start;
 }
 
-/* .Navbar-title {
-    text-align: left;
-} */
+.Navbar-title {
+    padding: 0.4vw;
+}
