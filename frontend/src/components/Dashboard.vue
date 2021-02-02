@@ -5,7 +5,7 @@
         <AddPlane @addPlane="addPlane($event)" />      
     </div>
     <div class="Dashboard-component">
-        <Planes v-if="planes.length > 0" :planes="planes" @deletePlane="deletePlane($event)" />
+        <Planes v-if="planes.length > 0" :planes="planes" @deletePlane="deletePlane($event)" @updatePlane="updatePlane($event)" />
     </div>
   </div>
 </template>
@@ -35,6 +35,7 @@ export default {
         this.planes = response
         this.numberOfPlanes = this.planes.length
       })
+      .catch(err => console.log("err", err))
     },
     addPlane(data) {
       console.log('adding plane: ', data)
@@ -47,8 +48,7 @@ export default {
     deletePlane(data) {
       console.log('deleting plane: ', data)
       deletePlane(data)
-      .then((response) => {
-        console.log("response", response);
+      .then(() => {
         this.getAllPlanes();
         })
       .catch(err => console.log(err));

@@ -21,7 +21,7 @@ export async function updatePlane(data) {
     const response = await fetch(`/api/planestatus/update`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({planeObject: data})
+        body: JSON.stringify(data)
       })
     return await response.json();
 }
