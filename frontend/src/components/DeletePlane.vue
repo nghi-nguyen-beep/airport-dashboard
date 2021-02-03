@@ -14,7 +14,6 @@ export default {
               _id: this.id,
               _rev: this.rev
             }
-            console.log("delete", payload);
           this.$emit('deletePlane', payload)
           }
         }

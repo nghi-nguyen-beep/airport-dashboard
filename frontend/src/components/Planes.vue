@@ -2,7 +2,9 @@
     <div class="Planes-container">
         <h2 class= "Planes-h2">Planes</h2>
         <div class="Planes-table-container">
-        <table class="table table-bordered table-striped">
+                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+        <table class="table table-bordered table-striped mb-0">
             <thead>
             <tr>
                 <th scope="col">Plane Number</th>
@@ -45,6 +47,7 @@
             </tbody>
         </table>
         </div>
+        </div>
     </div>
 </template>
 
@@ -78,7 +81,6 @@
                     _id: item._id,
                     _rev: item._rev
                     }
-                    console.log("delete", payload);
                 this.$emit('deletePlane', payload)
                 },
 

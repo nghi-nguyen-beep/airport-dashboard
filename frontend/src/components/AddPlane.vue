@@ -47,7 +47,6 @@ export default {
   },
   methods: {
       addPlane() {
-          console.log(this.planeNumber)
           const payload = {
               plane_number: this.planeNumber,
               departure: this.departure,
