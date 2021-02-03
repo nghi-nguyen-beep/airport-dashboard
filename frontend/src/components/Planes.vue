@@ -33,7 +33,6 @@
                                     <td><button id="Planes-button-cancel" @click='cancelUpdate()'>Cancel</button></td>
                                 </div>
                             </td>
-                            
                             <td v-else>
                                 <div class="Planes-buttons">
                                     <td><button id="Planes-button-delete" v-if="!updateSelected" @click='deletePlane(item)' >delete</button></td>
@@ -92,8 +91,8 @@
                         status: this.updateStatus
                     }
                 }
-                this.updateSelected = null;
                 this.$emit('updatePlane', payload);
+                this.updateSelected = null;
             },
 
             cancelUpdate() {

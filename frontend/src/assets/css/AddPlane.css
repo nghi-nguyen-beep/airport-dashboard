@@ -32,6 +32,12 @@ input[id*="AddPlane-"] {
     width: 40%;
 }
 
+select[id*="AddPlane-"] {
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    width: 40%;
+}
+
 .AddPlane-button-div {
     display: flex;
     justify-content:center;

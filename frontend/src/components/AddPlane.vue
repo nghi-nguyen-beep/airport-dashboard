@@ -20,7 +20,18 @@
                     </div>
                     <div class="input-block">
                         <label class="AddPlane-label" >Status</label>
-                        <input type="text" class="form-control" v-model="status" name="status" id="AddPlane-status" />
+                        <select class="form-control" v-model="status" name="status" id="AddPlane-status" >
+                            <option value="ARRIVED">ARRIVED</option>
+                            <option value="DELAYED">DELAYED</option>
+                            <option value="SCHEDULED">SCHEDULED</option>
+                            <option value="DEPARTED">DEPARTED</option>
+                            <option value="IN AIR">IN AIR</option>
+                            <option value="EXPECTED">EXPECTED</option>
+                            <option value="DIVERTED">DIVERTED</option>
+                            <option value="RECOVERY">RECOVERY</option>
+                            <option value="LANDED">LANDED</option>
+                            <option value="CANCELLED">CANCELLED</option>
+                        </select>
                     </div>
                 </div>
                 <div class= "AddPlane-button-div">
