@@ -15,16 +15,29 @@
                     
                     <tbody>
                         <tr v-for="item in planes" :key="item.id">            
-                            <td v-if="updateSelected && planeSelected._id === item._id"> <input type="text" id= "Planes-updatePlaneNumber" class="form-control" v-model="updatePlaneNumber" /> </td>
+                            <td v-if="updateSelected && planeSelected._id === item._id"> <input type="text" id= "Planes-updatePlaneNumber" class="form-control" v-model= "updatePlaneNumber" /> </td>
                             <td v-else>{{ item.planeObject.plane_number }}</td>
 
-                            <td v-if="updateSelected && planeSelected._id === item._id"> <input type="text" id= "Planes-updateDeparture" class="form-control" v-model="updateDeparture" /> </td>
+                            <td v-if="updateSelected && planeSelected._id === item._id"> <input type="text" id= "Planes-updateDeparture" class="form-control" v-model= "updateDeparture" /> </td>
                             <td v-else>{{ item.planeObject.departure }}</td>
 
-                            <td v-if="updateSelected && planeSelected._id === item._id"> <input type="text" id= "Planes-updateDestination" class="form-control" v-model="updateDestination" /> </td>
+                            <td v-if="updateSelected && planeSelected._id === item._id"> <input type="text" id= "Planes-updateDestination" class="form-control" v-model= "updateDestination" /> </td>
                             <td v-else>{{ item.planeObject.destination }}</td>
 
-                            <td v-if="updateSelected && planeSelected._id === item._id"> <input type="text" id= "Planes-updateStatus" class="form-control" v-model="updateStatus" /> </td>
+                            <td v-if="updateSelected && planeSelected._id === item._id"> 
+                                <select class="form-control" id= "Planes-updateStatus" v-model= "updateStatus" >
+                                    <option value="ARRIVED">ARRIVED</option>
+                                    <option value="DELAYED">DELAYED</option>
+                                    <option value="SCHEDULED">SCHEDULED</option>
+                                    <option value="DEPARTED">DEPARTED</option>
+                                    <option value="IN AIR">IN AIR</option>
+                                    <option value="EXPECTED">EXPECTED</option>
+                                    <option value="DIVERTED">DIVERTED</option>
+                                    <option value="RECOVERY">RECOVERY</option>
+                                    <option value="LANDED">LANDED</option>
+                                    <option value="CANCELLED">CANCELLED</option>
+                                </select>
+                            </td>
                             <td v-else>{{ item.planeObject.status }}</td>
 
                             <td v-if="updateSelected && planeSelected._id === item._id"> 

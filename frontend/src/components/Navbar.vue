@@ -1,8 +1,9 @@
 <template>
 <nav class="Navbar">
-  <h4 class="Navbar-title">Airport Dashboard</h4>
-  <i class="bi bi-cursor"></i>
-
+  <div class="Navbar-main">
+    <h4 class="Navbar-title">Airport Dashboard</h4>
+    <i class="bi bi-cursor"></i>
+  </div>
 </nav>
 </template>
 

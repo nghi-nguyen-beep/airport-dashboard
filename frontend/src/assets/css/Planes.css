@@ -42,7 +42,13 @@ table {
     width: 36vw;   
 }
 
-input[id*="Planes-"] {
+input [id*="Planes-"] {
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+}
+
+select [id*="Planes-"] {
     outline: none;
     background-color: rgb(255, 255, 255);
     width: 100%;

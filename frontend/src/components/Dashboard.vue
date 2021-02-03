@@ -36,35 +36,35 @@ export default {
   methods: {
     getAllPlanes() {
       getAllPlanes().then(response => {
-        console.log(response)
+        console.log('getting planes: ', response)
         this.planes = response
         this.numberOfPlanes = this.planes.length
       })
       .catch(err => console.log("err", err))
     },
+
     addPlane(data) {
       console.log('adding plane: ', data)
-      addPlane(data).then(response => {
-        console.log('response', response);
-        this.getAllPlanes();
-      });
+      addPlane(data)
+      .then(() => {
+        this.getAllPlanes()})
+      .catch(err => console.log(err));
     },
 
     deletePlane(data) {
       console.log('deleting plane: ', data)
       deletePlane(data)
       .then(() => {
-        this.getAllPlanes();
-        })
+        this.getAllPlanes()})
       .catch(err => console.log(err));
     },
 
    updatePlane(data) {
       console.log('updating plane: ', data)
-     updatePlane(data).then(response => {
-        console.log('response', response);
-        this.getAllPlanes();
-      });
+     updatePlane(data)
+     .then(() => {
+        this.getAllPlanes()})
+     .catch(err => console.log(err));
     }
 
   },
