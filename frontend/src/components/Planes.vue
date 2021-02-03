@@ -2,51 +2,48 @@
     <div class="Planes-container">
         <h2 class= "Planes-h2">Planes</h2>
         <div class="Planes-table-container">
-                <div class="table-wrapper-scroll-y my-custom-scrollbar">
-
-        <table class="table table-bordered table-striped mb-0">
-            <thead>
-            <tr>
-                <th scope="col">Plane Number</th>
-                <th scope="col">Departure</th>
-                <th scope="col">Destination</th>
-                <th scope="col">Status</th>
-        
-
-            </tr>
-            </thead>
-            
-            <tbody>
-              <tr v-for="item in planes" :key="item.id">            
-                    <td v-if="updateSelected && planeSelected._id === item._id"> <input type="text" id= "Planes-updatePlaneNumber" class="form-control" v-model="updatePlaneNumber" /> </td>
-                    <td v-else>{{ item.planeObject.plane_number }}</td>
-
-                    <td v-if="updateSelected && planeSelected._id === item._id"> <input type="text" id= "Planes-updateDeparture" class="form-control" v-model="updateDeparture" /> </td>
-                    <td v-else>{{ item.planeObject.departure }}</td>
-
-                    <td v-if="updateSelected && planeSelected._id === item._id"> <input type="text" id= "Planes-updateDestination" class="form-control" v-model="updateDestination" /> </td>
-                    <td v-else>{{ item.planeObject.destination }}</td>
-
-                    <td v-if="updateSelected && planeSelected._id === item._id"> <input type="text" id= "Planes-updateStatus" class="form-control" v-model="updateStatus" /> </td>
-                    <td v-else>{{ item.planeObject.status }}</td>
-
-                    <td v-if="updateSelected && planeSelected._id === item._id"> 
-                        <div class="Planes-buttons">
-                            <td><button id="Planes-button-update" @click='updatePlane()'>Save</button></td>
-                            <td><button id="Planes-button-cancel" @click='cancelUpdate()'>Cancel</button></td>
-                        </div>
-                    </td>
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                <table class="table table-bordered table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Plane Number</th>
+                            <th scope="col">Departure</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
                     
-                    <td v-else>
-                        <div class="Planes-buttons">
-                            <td><button id="Planes-button-delete" v-if="!updateSelected" @click='deletePlane(item)' >delete</button></td>
-                            <td><button id="Planes-button-select" v-if="!updateSelected" @click="updateForm(item)"  >update</button></td>    
-                        </div>
-                    </td>  
-              </tr>
-            </tbody>
-        </table>
-        </div>
+                    <tbody>
+                        <tr v-for="item in planes" :key="item.id">            
+                            <td v-if="updateSelected && planeSelected._id === item._id"> <input type="text" id= "Planes-updatePlaneNumber" class="form-control" v-model="updatePlaneNumber" /> </td>
+                            <td v-else>{{ item.planeObject.plane_number }}</td>
+
+                            <td v-if="updateSelected && planeSelected._id === item._id"> <input type="text" id= "Planes-updateDeparture" class="form-control" v-model="updateDeparture" /> </td>
+                            <td v-else>{{ item.planeObject.departure }}</td>
+
+                            <td v-if="updateSelected && planeSelected._id === item._id"> <input type="text" id= "Planes-updateDestination" class="form-control" v-model="updateDestination" /> </td>
+                            <td v-else>{{ item.planeObject.destination }}</td>
+
+                            <td v-if="updateSelected && planeSelected._id === item._id"> <input type="text" id= "Planes-updateStatus" class="form-control" v-model="updateStatus" /> </td>
+                            <td v-else>{{ item.planeObject.status }}</td>
+
+                            <td v-if="updateSelected && planeSelected._id === item._id"> 
+                                <div class="Planes-buttons">
+                                    <td><button id="Planes-button-update" @click='updatePlane()'>Save</button></td>
+                                    <td><button id="Planes-button-cancel" @click='cancelUpdate()'>Cancel</button></td>
+                                </div>
+                            </td>
+                            
+                            <td v-else>
+                                <div class="Planes-buttons">
+                                    <td><button id="Planes-button-delete" v-if="!updateSelected" @click='deletePlane(item)' >delete</button></td>
+                                    <td><button id="Planes-button-select" v-if="!updateSelected" @click="updateForm(item)"  >update</button></td>    
+                                </div>
+                            </td>  
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </template>
@@ -67,7 +64,7 @@
         name: 'planes',
         props: ['planes'],
         methods: {
-            updateForm(payload) { // prefilling out input form upon update button
+            updateForm(payload) { // prefilling out input form with current data upon update button
                 this.updateSelected = !this.updateSelected;
                 this.updatePlaneNumber = payload.planeObject.plane_number;
                 this.updateDeparture = payload.planeObject.departure;
@@ -97,20 +94,11 @@
                 }
                 this.updateSelected = null;
                 this.$emit('updatePlane', payload);
-
             },
 
             cancelUpdate() {
                 this.updateSelected = null;
             }
-
         }
      }
 </script>
-
-<style scoped>
-.container {
-    padding: 5%;
-}
-
-</style>
