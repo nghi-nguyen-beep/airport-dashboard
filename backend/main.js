@@ -19,14 +19,14 @@ app.post('/api/planestatus/create', (req, res) => {
   console.log(req.body);
   crudHelper.createPlaneStatus(database_name, req.body)
     .then(result => res.send(result))
-    .catch(err => console.log(err.description));
+    .catch(err => console.log("Error creating plane. ", err.description));
 });
 
 // Get request to read a plane's status
 app.get('/api/planestatus/read', (req, res) => {
-  crudHelper.readPlaneStatus(database_name).then(function (result) {
-    res.send(result);
-  })
+  crudHelper.readPlaneStatus(database_name)
+  .then(result => res.send(result))
+  .catch(err => console.log("Error reading database. ", err.description));
 });
 
 // Post request to update a plane's status
@@ -39,7 +39,7 @@ app.post('/api/planestatus/update', (req, res) => {
 // Post request to delete a plane's status
 app.post('/api/planestatus/delete', (req, res) => {
 console.log("body", req.body);
- crudHelper.deletePlaneStatus(database_name, req.body._id, req.body._rev)
+ crudHelper.deletePlaneStatus(database_name, req.body)
  .then(result => res.send(result))
  .catch(err => console.log("Error deleting plane. ", err.description)) 
 });

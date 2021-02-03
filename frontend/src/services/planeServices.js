@@ -15,7 +15,7 @@ export async function getAllPlanes() {
     return await response.json();
 }
 
-// Calls the update endpoint to update a plane's status
+// Calls the update endpoint to update a plane's status (body must include {_id, _rev, planeObject})
 export async function updatePlane(data) {
     // Implement update request here
     const response = await fetch(`/api/planestatus/update`, {
@@ -26,12 +26,12 @@ export async function updatePlane(data) {
     return await response.json();
 }
 
-// Calls the delete endpoint to delete a plane's status
+// Calls the delete endpoint to delete a plane's status (body must include {_id, _rev})
 export async function deletePlane(data) {
     const response = await fetch(`/api/planestatus/delete`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
       })
-    return response.json();
+    return await response.json();
 }

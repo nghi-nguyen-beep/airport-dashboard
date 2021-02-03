@@ -50,9 +50,6 @@ module.exports = {
      * @return {Array}
      */
     updatePlaneStatus(database, body) {
-    // https://www.ibm.com/cloud/blog/cloudant-best-and-worst-practices-part-2
-    // create another document from user
-    // delete selected document
         return new Promise((resolve, reject) => {
             _cloudant.updateData(
                 database,
@@ -70,17 +67,15 @@ module.exports = {
      * @async
      * @return {Array}
      */
-    deletePlaneStatus(database, documentId, documentRev) {
-    // does not actually delete-- revises doc to be tombstone (adds deleted field)
-    // can delete and replicate db but tbd
-    return new Promise((resolve, reject) => {
-        _cloudant.deleteData(
-            database,
-            documentId,
-            documentRev
-        ).then(result => {
-            resolve(result);
-        }).catch(err => reject(err));
-    });
+    deletePlaneStatus(database, body) {
+        return new Promise((resolve, reject) => {
+            _cloudant.deleteData(
+                database,
+                body._id,
+                body._rev
+            ).then(result => {
+                resolve(result);
+            }).catch(err => reject(err));
+        });
     }
 };
