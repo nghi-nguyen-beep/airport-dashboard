@@ -4,13 +4,14 @@ const bodyParser = require('body-parser');
 const app = express();
 require('dotenv').config({path: '../.env'});
 const port = 8081;
+const csv = require('csv-parser');
+const fs = require('fs');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
 const crudHelper = require("./server/helpers/crudHelper");
-
 // The database_name should be "airport-<your_last_name_in_all_lowercase>" for example John Doe would be "airport-doe"
 const database_name = process.env.CLOUDANT_DB_NAME;
 
@@ -42,11 +43,31 @@ app.post('/api/planestatus/delete', (req, res) => {
  .catch(err => console.log("Error deleting plane. ", err.description)) 
 });
 
+// Get request to get IATA code of airports in city
+app.get('/api/city', test);
+
 app.get('/', (req,res) => {
   res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
 });
+
 
 app.listen(port, function () {
   console.log('Server listening on port ' + port);
 });
 
+function test(req, res) {
+  var iata = new Array();
+  let user_city = String(req.query.city).toLowerCase().replace(/\s/g,'');
+  
+  fs.createReadStream('./server/helpers/iata_data/iata.csv')
+    .pipe(csv())
+    .on('data', (row) => {  
+      if (user_city === row['﻿City'].toLowerCase().replace(/\s/g,'')) {
+        console.log(row['IATA'], row['State'], row['﻿City']);
+        iata.push([row['IATA'], row['State']])
+      }
+    })
+    .on('end', () => {
+      res.send({data: iata});
+    });
+}
