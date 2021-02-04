@@ -1,22 +1,21 @@
-.Dashboard {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-}
 
 .Dashboard-main {
+    max-width: 100vw;
+    max-height: 100vh;
     display: flex;
-    padding: 2%;
-    justify-content:space-evenly;
     flex-wrap: wrap;
-    align-items:flex-start;
+    flex-direction: column;
+    align-content:space-around;
+    padding: 2%;
+    /* justify-content:space-evenly; */
+ 
     
 }
 
 .Dashboard-component {
-    max-width: 50vw;
+    max-width: 40vw;
     max-height: 80vh;
     border-radius: 16px;
     background-color: #2364aa;
+    margin: 1%;
 }

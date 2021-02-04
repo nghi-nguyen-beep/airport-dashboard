@@ -6,6 +6,11 @@
     <div class="Dashboard-component">  
         <AddPlane @addPlane="addPlane($event)" />      
     </div>
+
+        <div class="Dashboard-component">
+        <IATA v-bind:iataCodes="iataCodes" @getIATA="getIATA($event)" />
+    </div>
+
     <div class="Dashboard-component">
         <Planes v-bind:planes="planes" @deletePlane="deletePlane($event)" @updatePlane="updatePlane($event)" />
     </div>
@@ -17,20 +22,23 @@
 import AddPlane from './AddPlane.vue'
 import Planes from './Planes.vue'
 import Navbar from './Navbar.vue'
+import IATA from './IATA.vue'
 import '../assets/css/Dashboard.css'
-import { getAllPlanes, addPlane, deletePlane, updatePlane } from '../services/planeServices'
+import { getAllPlanes, addPlane, deletePlane, updatePlane, getIATA } from '../services/planeServices'
 
 export default {
   name: 'Dashboard',
   components: {
     AddPlane,
     Planes,
-    Navbar
+    Navbar,
+    IATA
   },
   data() {
       return {
           planes: [],
-          numberOfPlanes: 0
+          numberOfPlanes: 0,
+          iataCodes: []
       }
   },
   methods: {
@@ -65,7 +73,16 @@ export default {
      .then(() => {
         this.getAllPlanes()})
      .catch(err => console.log(err));
-    }
+    },
+
+   getIATA(data) {
+   
+     getIATA(data)
+     .then((result) => {
+       console.log(result);
+        this.iataCodes = result})
+     .catch(err => console.log(err));
+    },
 
   },
   mounted () {

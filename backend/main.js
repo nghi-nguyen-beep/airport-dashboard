@@ -44,7 +44,11 @@ app.post('/api/planestatus/delete', (req, res) => {
 });
 
 // Get request to get IATA code of airports in city
-app.get('/api/city', test);
+app.get('/api/city', (req, res) => {
+  test(req,res);
+}
+
+);
 
 app.get('/', (req,res) => {
   res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
@@ -56,18 +60,21 @@ app.listen(port, function () {
 });
 
 function test(req, res) {
-  var iata = new Array();
+  console.log("req", req);
+  var iata = {};
   let user_city = String(req.query.city).toLowerCase().replace(/\s/g,'');
-  
+  let counter = 0;
   fs.createReadStream('./server/helpers/iata_data/iata.csv')
     .pipe(csv())
     .on('data', (row) => {  
       if (user_city === row['﻿City'].toLowerCase().replace(/\s/g,'')) {
         console.log(row['IATA'], row['State'], row['﻿City']);
-        iata.push([row['IATA'], row['State']])
+        iata[counter] = {'IATA': row['IATA'], 'State': row['State'], 'City': row['﻿City'] }
+        counter++;
       }
     })
     .on('end', () => {
-      res.send({data: iata});
+      console.log("iata", iata);
+      res.send(iata);
     });
 }

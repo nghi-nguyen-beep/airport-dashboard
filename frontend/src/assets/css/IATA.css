@@ -1,22 +1,31 @@
-.AddPlane-container {
+.IATA-container {
     display: flex;
     padding: 5%;
     width: 40vw;
     height: 40vh;
 }
 
-.AddPlane-label {
+.IATA-label {
     display: inline-block;
     width: 140px;
     text-align: left;
 }
 
-.AddPlane-h2 {
+table {
+    table-layout: fixed;
+    width: 36vw;   
+}
+
+.IATA-table-container {
+    width: 36vw;
+}
+
+.IATA-h2 {
     text-align: left;
     padding: 2%;
 }
 
-.AddPlane-form {
+.IATA-form {
     text-align: left;
 }
 
@@ -26,26 +35,26 @@
     margin: 2%;
 }
 
-input[id*="AddPlane-"] {
+input[id*="IATA-"] {
     outline: none;
     background-color: rgb(255, 255, 255);
     width: 40%;
 }
 
-select[id*="AddPlane-"] {
+select[id*="IATA-"] {
     outline: none;
     background-color: rgb(255, 255, 255);
     width: 40%;
 }
 
-.AddPlane-button-div {
+.IATA-button-div {
     display: flex;
     justify-content:center;
     align-items:center;
     margin: 5%;
 }
 
-#AddPlane-button {
+#IATA-button {
     background-color: rgb(19, 129, 37) ;
     border-radius: 4px;
     color: white;
@@ -53,7 +62,7 @@ select[id*="AddPlane-"] {
     transition-duration: 0.3s;
 }
 
-#AddPlane-button:hover {
+#IATA-button:hover {
     background-color: #266828; /* Green */
     color: white;
   }
