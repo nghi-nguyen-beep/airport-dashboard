@@ -16,7 +16,6 @@ const database_name = process.env.CLOUDANT_DB_NAME;
 
 // Post request to create a plane's status
 app.post('/api/planestatus/create', (req, res) => {
-  console.log(req.body);
   crudHelper.createPlaneStatus(database_name, req.body)
     .then(result => res.send(result))
     .catch(err => console.log("Error creating plane. ", err.description));
@@ -38,7 +37,6 @@ app.post('/api/planestatus/update', (req, res) => {
 
 // Post request to delete a plane's status
 app.post('/api/planestatus/delete', (req, res) => {
-console.log("body", req.body);
  crudHelper.deletePlaneStatus(database_name, req.body)
  .then(result => res.send(result))
  .catch(err => console.log("Error deleting plane. ", err.description)) 

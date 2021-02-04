@@ -22,6 +22,7 @@
                         <label class="AddPlane-label" >Status</label>
                         <select class="form-control" v-model="status" name="status" id="AddPlane-status" >
                             <option value="ARRIVED">ARRIVED</option>
+                            <option value="BOARDING">BOARDING</option>
                             <option value="DELAYED">DELAYED</option>
                             <option value="SCHEDULED">SCHEDULED</option>
                             <option value="DEPARTED">DEPARTED</option>

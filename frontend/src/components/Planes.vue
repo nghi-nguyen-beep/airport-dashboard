@@ -27,6 +27,7 @@
                             <td v-if="updateSelected && planeSelected._id === item._id"> 
                                 <select class="form-control" id= "Planes-updateStatus" v-model= "updateStatus" >
                                     <option value="ARRIVED">ARRIVED</option>
+                                    <option value="BOARDING">BOARDING</option>
                                     <option value="DELAYED">DELAYED</option>
                                     <option value="SCHEDULED">SCHEDULED</option>
                                     <option value="DEPARTED">DEPARTED</option>
