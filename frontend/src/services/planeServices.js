@@ -1,4 +1,5 @@
 // Calls the create endpoint to add a new plane status
+
 export async function addPlane(data) {
     const response = await fetch(`/api/planestatus/create`, {
         method: 'POST',
@@ -10,7 +11,6 @@ export async function addPlane(data) {
 
 // Calls the read endpoint to get the status of all planes
 export async function getAllPlanes() {
-
     const response = await fetch('/api/planestatus/read');
     return await response.json();
 }
@@ -36,7 +36,7 @@ export async function deletePlane(data) {
     return await response.json();
 }
 
-// Calls the endpoint to get iata codes in certain city
+// Calls the delete endpoint to delete a plane's status (body must include {_id, _rev})
 export async function getIATA(data) {
   const response = await fetch(`/api/city?city=`+data["city"]);
   return await response.json();

@@ -29,14 +29,14 @@ app.get('/api/planestatus/read', (req, res) => {
   .catch(err => console.log("Error reading database. ", err.description));
 });
 
-// Post request to update a plane's status
+// Post request to update a plane's status (body must include, _id, _rev, planeObject)
 app.post('/api/planestatus/update', (req, res) => {
   crudHelper.updatePlaneStatus(database_name, req.body)
   .then(result => res.send({result}))
   .catch(err => console.log("Error updating plane. ", err.description));
 });
 
-// Post request to delete a plane's status
+// Post request to delete a plane's status (body must include _id, _rev)
 app.post('/api/planestatus/delete', (req, res) => {
  crudHelper.deletePlaneStatus(database_name, req.body)
  .then(result => res.send(result))
@@ -45,10 +45,8 @@ app.post('/api/planestatus/delete', (req, res) => {
 
 // Get request to get IATA code of airports in city
 app.get('/api/city', (req, res) => {
-  test(req,res);
-}
-
-);
+  getCityCodes(req,res);
+});
 
 app.get('/', (req,res) => {
   res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
@@ -59,8 +57,7 @@ app.listen(port, function () {
   console.log('Server listening on port ' + port);
 });
 
-function test(req, res) {
-  console.log("req", req);
+function getCityCodes(req, res) {
   var iata = {};
   let user_city = String(req.query.city).toLowerCase().replace(/\s/g,'');
   let counter = 0;
@@ -68,13 +65,11 @@ function test(req, res) {
     .pipe(csv())
     .on('data', (row) => {  
       if (user_city === row['﻿City'].toLowerCase().replace(/\s/g,'')) {
-        console.log(row['IATA'], row['State'], row['﻿City']);
         iata[counter] = {'IATA': row['IATA'], 'State': row['State'], 'City': row['﻿City'] }
         counter++;
       }
     })
     .on('end', () => {
-      console.log("iata", iata);
       res.send(iata);
     });
 }
