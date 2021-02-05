@@ -36,7 +36,7 @@ export async function deletePlane(data) {
     return await response.json();
 }
 
-// Calls the delete endpoint to delete a plane's status (body must include {_id, _rev})
+// Calls the endpoint to get iata codes in certain city
 export async function getIATA(data) {
   const response = await fetch(`/api/city?city=`+data["city"]);
   return await response.json();
