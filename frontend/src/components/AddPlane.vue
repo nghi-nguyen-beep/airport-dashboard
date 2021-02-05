@@ -1,23 +1,15 @@
 <template>
   <div class="AddPlane-container">
       
-    <div class="row">
      <h2 class="AddPlane-h2">Add Plane</h2>
-        <div class="AddPlane-form">
-            <form >
-                <div>
+        <div >
+            <form class="AddPlane-form">
+              
                     <div class="input-block" >
                         <label class="AddPlane-label">Plane Number</label>
                         <input type="text" class="form-control" v-model="planeNumber" name="planenumber" id="AddPlane-planenumber" />
                     </div>
-                    <div class="input-block">
-                        <label class="AddPlane-label" >Departure</label>
-                        <input type="text" class="form-control" v-model="departure" name="departure" id="AddPlane-departure" />
-                    </div>
-                    <div class="input-block">
-                        <label class="AddPlane-label" >Destination</label>
-                        <input type="text" class="form-control" v-model="destination" name="destination" id="AddPlane-destination" />
-                    </div>
+
                     <div class="input-block">
                         <label class="AddPlane-label" >Status</label>
                         <select class="form-control" v-model="status" name="status" id="AddPlane-status" >
@@ -34,13 +26,21 @@
                             <option value="CANCELLED">CANCELLED</option>
                         </select>
                     </div>
-                </div>
+
+                    <div class="input-block">
+                        <label class="AddPlane-label" >Departure</label>
+                        <input type="text" class="form-control" v-model="departure" name="departure" id="AddPlane-departure" />
+                    </div>
+                    <div class="input-block">
+                        <label class="AddPlane-label" >Destination</label>
+                        <input type="text" class="form-control" v-model="destination" name="destination" id="AddPlane-destination" />
+                    </div>
+
                 <div class= "AddPlane-button-div">
                 <button id= "AddPlane-button" type="button" @click='addPlane()'>Create</button>
                 </div>
             </form>
         </div>
-    </div>
     </div>
 </template>
 

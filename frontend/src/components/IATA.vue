@@ -1,17 +1,24 @@
 <template>
     <div class="IATA-container">
-        <form >
-            <div class="IATA-input-block" >
-                <label class="IATA-label">Enter a city</label>
-                <input type="text" class="form-control" v-model="city" name="city" id="IATA-CITY" />
-            </div>
-            <div class= "IATA-button-div">
-                <button id= "IATA-button" type="button" @click='getIATA()'>get codes</button>
-            </div>
-        </form>
+    
+        <h2 class="IATA-h2">Search IATA</h2>
 
-        <div class="IATA-table-container">
-            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <div >
+            <form class="IATA-form" >
+                <div class="IATA-input-block" >
+                    <label class="IATA-label">Enter a city</label>
+                    <input type="text" class="form-control" v-model="city" name="city" id="IATA-city" />
+                </div>
+                <div class= "IATA-button-div">
+                    <button id= "IATA-button" type="button" @click='getIATA()'>get codes</button>
+                </div>
+            </form>
+        </div>
+
+        <div v-if="Object.keys(iataCodes).length === 0"><h2>nothing found</h2></div>
+        
+        <div v-else class= "IATA-table-container">
+            <div id= "IATA-scroll" class="table-wrapper-scroll-y my-custom-scrollbar">
                 <table class="table table-bordered table-striped mb-0">
                     <thead>
                         <tr>
@@ -44,13 +51,14 @@ export default {
       city: '',
     }
   },
+  
   methods: {
     getIATA() {
         const payload = {
         city: this.city,
         }
-        this.$emit('getIATA', payload)
+        this.$emit('getIATA', payload);
     }
-    }  
+  }  
 }
 </script>

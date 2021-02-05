@@ -1,48 +1,59 @@
 .AddPlane-container {
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     padding: 5%;
-    width: 40vw;
-    height: 40vh;
+    max-width: 40vw;
+    max-height: 50vh;
+    width: auto;
+    height: auto;
 }
 
 .AddPlane-label {
     display: inline-block;
-    width: 140px;
+    width: 130px;
     text-align: left;
 }
 
 .AddPlane-h2 {
     text-align: left;
-    padding: 2%;
+    /* padding-left: 5%; */
 }
 
 .AddPlane-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* align-items: center;
+    justify-content: ; */
     text-align: left;
+    padding: 2%;
 }
 
 .input-block {
     display: flex;
     text-align: left;
+    width: 15vw;
     margin: 2%;
 }
 
 input[id*="AddPlane-"] {
     outline: none;
     background-color: rgb(255, 255, 255);
-    width: 40%;
+    width: 65%;
 }
 
 select[id*="AddPlane-"] {
     outline: none;
     background-color: rgb(255, 255, 255);
-    width: 40%;
+    width: 65%;
 }
 
 .AddPlane-button-div {
     display: flex;
     justify-content:center;
     align-items:center;
-    margin: 5%;
+    /* margin: 5%; */
 }
 
 #AddPlane-button {
